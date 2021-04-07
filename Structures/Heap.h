@@ -14,12 +14,6 @@ typedef struct Heap {
 	struct HuffmanNode** array;
 };
 
-int parent(int i);
-
-int left(int i);
-
-int right(int i);
-
 struct HuffmanNode* newNode(char s, int freq);
 
 struct Heap *newMinHeap(unsigned capacity);
