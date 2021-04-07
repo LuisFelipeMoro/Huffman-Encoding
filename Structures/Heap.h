@@ -14,6 +14,12 @@ typedef struct Heap {
 	struct HuffmanNode** array;
 };
 
+int parent(int i);
+
+int left(int i);
+
+int right(int i);
+
 struct HuffmanNode* newNode(char s, int freq);
 
 struct Heap *newMinHeap(unsigned capacity);
@@ -21,6 +27,8 @@ struct Heap *newMinHeap(unsigned capacity);
 void swapNode(struct HuffmanNode **a, struct HuffmanNode **b);
 
 void minHeapify(struct Heap *minHeap, int idx);
+
+void buildMinHeap(struct Heap *minHeap);
 
 int checkSizeOne(struct Heap *minHeap);
 
