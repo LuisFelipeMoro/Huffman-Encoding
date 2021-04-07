@@ -16,8 +16,6 @@ typedef struct Heap {
 
 struct HuffmanNode* newNode(char s, int freq);
 
-Tree* buildTree(char symbols[], int frequencies[], int size);
-
 struct Heap *createMinHeap(unsigned capacity);
 
 void swapNode(struct HuffmanNode **a, struct HuffmanNode **b);
