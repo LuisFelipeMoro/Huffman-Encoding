@@ -14,18 +14,20 @@ typedef struct Heap {
 	struct HuffmanNode** array;
 };
 
-struct HuffmanNode* newNode(char s, int freq);
+struct HuffmanNode* newNode(char s, int freq); 
 
-struct Heap *newMinHeap(unsigned capacity);
+struct Heap *newMinHeap(unsigned capacity); 
 
-void swapNode(struct HuffmanNode **a, struct HuffmanNode **b);
+void swapNode(struct HuffmanNode **a, struct HuffmanNode **b); 
 
-void minHeapify(struct Heap *minHeap, int idx);
+void minHeapify(struct Heap *minHeap, int i); 
 
-void buildMinHeap(struct Heap *minHeap);
+void buildMinHeap(struct Heap *minHeap);  
 
-int checkSizeOne(struct Heap *minHeap);
+int checkSizeOne(struct Heap *minHeap); 
 
-int isLeaf(struct HuffmanNode *node);
+int isLeaf(struct HuffmanNode *node); 
 
-void printVetor(int array[], int n);
+void printVetor(int array[], int n); 
+
+struct Heap *createAndBuildMinHeap(char symbol[], int frequency[], int size); 
