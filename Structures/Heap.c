@@ -26,7 +26,7 @@ struct Heap *newMinHeap(unsigned capacity){
 }
 
 //Checa se o tamanho da fila/heap é 1, ou seja se chegamos ao fiz
-//da inserção
+//da inserção na árvore.
 //Retorna 1 caso o tamanho seja 1 e 0 caso não seja.
 int checkSizeOne(struct Heap *minHeap){
 		return (minHeap->size == 1);
