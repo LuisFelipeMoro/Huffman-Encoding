@@ -1,5 +1,7 @@
 #include "Huffman.h"
 
+#define MAX_TREE_HEIGHT 50
+
 //Imprime a representação da compressão como H code
 void printHCodes(struct HuffmanNode* raiz, int arr[], int top){
 	if (raiz->left) {
@@ -34,4 +36,16 @@ struct HuffmanNode *buildHuffmanTree(char symbol[], int frequency[], int size) {
     insertMinHeap(minHeap, top);
   }
   return extractMin(minHeap);
+}
+
+//Função que junta as chamadas das funções de contrução
+//da árvore de huffman e a impressão dos H codes
+void Huffman(char symbol[], int freq[], int size) {
+
+  struct MinHNode *root = buildHuffmanTree(symbol, freq, size);
+
+  int arr[MAX_TREE_HEIGHT], top = 0;
+
+  printHCodes(root, arr, top);
+
 }
