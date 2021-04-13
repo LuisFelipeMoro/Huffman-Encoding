@@ -42,10 +42,10 @@ struct HuffmanNode *buildHuffmanTree(char symbol[], int frequency[], int size) {
 //da árvore de huffman e a impressão dos H codes
 void Huffman(char symbol[], int freq[], int size) {
 
-  struct MinHNode *root = buildHuffmanTree(symbol, freq, size);
+  struct HuffmanNode *raiz = buildHuffmanTree(symbol, freq, size);
 
   int arr[MAX_TREE_HEIGHT], top = 0;
 
-  printHCodes(root, arr, top);
+  printHCodes(raiz, arr, top);
 
 }
