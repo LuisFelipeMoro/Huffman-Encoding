@@ -12,20 +12,19 @@ struct HuffmanNode *extractMin(struct Heap *heap) {
     return temp;
 }
 
+void insertMinHeap(struct Heap *heap, struct HuffmanNode *node) {
 
-void decreaseMinHeapKey(struct Heap *heap, int i, struct HuffmanNode *node) {
+    ++heap->size;
+
+    int i = heap->size - 1;
+    
     if (node->frequency > heap->array[i]) {
         printf("error: larger frequency while trying to decrease");
         return;
     }
-     while (i && node->frequency < heap->array[(i - 1) / 2]->frequency) {
+    while (i && node->frequency < heap->array[(i - 1) / 2]->frequency) {
         heap->array[i] = heap->array[(i - 1) / 2];
         i = (i - 1) / 2;
     }
     heap->array[i] = node;
-}
-
-void insertMinHeap(struct Heap *heap, struct HuffmanNode *node) {
-    ++heap->size;
-    decreaseMinHeapKey(heap, heap->size - 1, node);
 }
