@@ -20,7 +20,7 @@ void printHCodes(struct HuffmanNode* raiz, int arr[], int top){
 }
 
 // Constroe a árvore de huffman utilizando do minHeap para criar uma fila de prioridade, assim retirando
-//as menores ocorrências e montando a árvore a partir de suas folhas.
+//as duas menores ocorrências e montando a árvore a partir de suas folhas.
 struct HuffmanNode *buildHuffmanTree(char symbol[], int frequency[], int size) {
   struct HuffmanNode *left, *right, *top;
   struct Heap *minHeap = createAndBuildMinHeap(symbol, frequency, size);
