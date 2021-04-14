@@ -2,7 +2,8 @@
 
 #define MAX_TREE_HEIGHT 50
 
-//Imprime a representação da compressão como H code
+//Imprime a representação da compressão na árvore como H code, imprimindo apenas as folhas 
+//que são os caracteres do input
 void printHCodes(struct HuffmanNode* raiz, int arr[], int top){
 	if (raiz->left) {
 	arr[top] = 0;
@@ -46,6 +47,8 @@ void useHuffman(char symbol[], int freq[], int size) {
 
   int arr[MAX_TREE_HEIGHT], top = 0;
 
+  printf(" Char | Huffman code ");
+  printf("\n--------------------\n");
   printHCodes(raiz, arr, top);
 
 }
