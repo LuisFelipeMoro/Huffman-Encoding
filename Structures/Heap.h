@@ -12,7 +12,7 @@ typedef struct Heap {
 	unsigned size;
 	unsigned capacity;
 	struct HuffmanNode** array;
-};
+}Heap, minHeap;
 
 struct HuffmanNode* newNode(char s, int freq); 
 

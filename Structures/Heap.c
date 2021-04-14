@@ -41,7 +41,7 @@ void swapNode( struct HuffmanNode **a, struct HuffmanNode **b){
 
 //Checa se o Nó recebido é uma folha
 int isLeaf(struct HuffmanNode *node){
-	return !(node->left) && !(node->right);
+	return (node->left) == 0 && (node->right) == 0;
 }
 
 
@@ -84,7 +84,7 @@ void buildMinHeap(struct Heap *minHeap){
 //Cria o minHeap, insere os nós dentro de seu vetor e chama o método buildMinHeap
 struct Heap *createAndBuildMinHeap(char symbol[], int frequency[], int size) {
 
-  struct Heap *minHeap = createMinH(size);
+  struct Heap *minHeap = newMinHeap(size);
 
   for (int i = 0; i < size; ++i)
     minHeap->array[i] = newNode(symbol[i], frequency[i]);

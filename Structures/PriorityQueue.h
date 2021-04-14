@@ -1,7 +1,5 @@
 #include "Heap.h"
 
-struct HuffmanNode *minimum(struct Heap *heap);
-
 struct HuffmanNode *extractMin(struct Heap *heap);
 
 void decreaseMinHeapKey(struct Heap *heap, int i, struct HuffmanNode *node);

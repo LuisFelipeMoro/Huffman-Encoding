@@ -40,7 +40,7 @@ struct HuffmanNode *buildHuffmanTree(char symbol[], int frequency[], int size) {
 
 //Função que junta as chamadas das funções de contrução
 //da árvore de huffman e a impressão dos H codes
-void Huffman(char symbol[], int freq[], int size) {
+void useHuffman(char symbol[], int freq[], int size) {
 
   struct HuffmanNode *raiz = buildHuffmanTree(symbol, freq, size);
 
