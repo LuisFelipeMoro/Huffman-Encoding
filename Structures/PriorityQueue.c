@@ -1,5 +1,7 @@
 #include "PriorityQueue.h"
 
+//Retira o nó do topo que é o menor valor dentro do heap ja montado, e rearranja o heap colocando
+//o ultimo elemento no topo e fazendo o heapify
 struct HuffmanNode *extractMin(struct Heap *heap) {
      struct HuffmanNode *temp = heap->array[0];
     if (heap->size < 1) {
@@ -12,12 +14,14 @@ struct HuffmanNode *extractMin(struct Heap *heap) {
     return temp;
 }
 
+//Insere um nó dentro do heap, aumentando seu tamanho e checando aonde devemos inserir esse nó
+//a partir de sua frequencia.
 void insertMinHeap(struct Heap *heap, struct HuffmanNode *node) {
 
     ++heap->size;
 
     int i = heap->size - 1;
-    
+
     if (node->frequency > heap->array[i]) {
         printf("error: larger frequency while trying to decrease");
         return;
