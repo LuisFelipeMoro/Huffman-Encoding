@@ -1,5 +1,5 @@
 #include "Heap.h"
 
-struct HuffmanNode *extractMin(struct Heap *heap);
+Node *extractMin(Heap *heap);
 
-void insertMinHeap(struct Heap *heap, struct HuffmanNode *node);
+void insertMinHeap(Heap *heap, Node *node);

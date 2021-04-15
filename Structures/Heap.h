@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct HuffmanNode{
-	char symbol;
-	int frequency;
-	struct HuffmanNode* left;
-	struct HuffmanNode* right;
-}No, Tree;
+#include "Node.h"
 
 typedef struct Heap {
 	unsigned size;
@@ -14,20 +8,16 @@ typedef struct Heap {
 	struct HuffmanNode** array;
 }Heap, minHeap;
 
-struct HuffmanNode* newNode(char s, int freq); 
+Node* newNode(char s, int freq); 
 
-struct Heap *newMinHeap(unsigned capacity); 
+Heap *newMinHeap(unsigned capacity); 
 
-void swapNode(struct HuffmanNode **a, struct HuffmanNode **b); 
+void swapNode(Node **a,Node **b); 
 
-void minHeapify(struct Heap *minHeap, int i); 
+void minHeapify(Heap *minHeap, int i); 
 
-void buildMinHeap(struct Heap *minHeap);  
+void buildMinHeap(Heap *minHeap);  
 
-int checkSizeOne(struct Heap *minHeap); 
+int checkSizeOne(Heap *minHeap); 
 
-int isLeaf(struct HuffmanNode *node); 
-
-void printVetor(int array[], int n); 
-
-struct Heap *createAndBuildMinHeap(char symbol[], int frequency[], int size); 
+Heap *createAndBuildMinHeap(char symbol[], int frequency[], int size); 
