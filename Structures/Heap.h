@@ -10,7 +10,11 @@ typedef struct Heap {
 
 Node* newNode(char s, int freq); 
 
+Node* freeNode(Node* node); 
+
 Heap *newMinHeap(unsigned capacity); 
+
+Heap *freeMinHeap(Heap* heap); 
 
 void swapNode(Node **a,Node **b); 
 

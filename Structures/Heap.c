@@ -12,6 +12,17 @@ Node* newNode(char s, int freq){
 	return temp;
 }
 
+//Libera um Nó de Huffman. 
+Node* freeNode(Node* node) {
+	if (node == NULL) {
+		return NULL;
+	}
+	node->left = freeNode(node->left);
+	node->right = freeNode(node->right);
+	free(node);
+	return NULL;
+}
+
 //Cria um MinHeap e o Inicializa.
 Heap *newMinHeap(unsigned capacity){
 	Heap *minHeap = (Heap *)malloc(sizeof(Heap));
@@ -23,6 +34,16 @@ Heap *newMinHeap(unsigned capacity){
 	minHeap->array = (Node **)malloc(minHeap->capacity * sizeof(Node *));
 
 	return minHeap;
+}
+
+//Libera um MinHeap. 
+Heap *freeMinHeap(Heap* heap){
+	for (int i = 0; i < heap->size; i++) {
+		freeNode(heap->array[i]);
+	}
+	free(heap->array);
+	free(heap);
+	return NULL;
 }
 
 //Checa se o tamanho da fila/heap é 1, ou seja se chegamos ao fiz

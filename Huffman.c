@@ -20,7 +20,10 @@ Node *buildHuffmanTree(char symbol[], int frequency[], int size) {
 
 		insertMinHeap(minHeap, top);
 	}
-	return extractMin(minHeap);
+
+	Node *root = extractMin(minHeap);
+	minHeap = freeMinHeap(minHeap);
+	return root;
 }
 
 //Função que junta as chamadas das funções de contrução
@@ -35,4 +38,5 @@ void useHuffman(char symbol[], int freq[], int size) {
 	printf("\n--------------------\n");
 	printHCodes(raiz, arr, top);
 
+	freeNode(raiz);
 }
