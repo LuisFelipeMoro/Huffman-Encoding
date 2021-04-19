@@ -1,12 +1,13 @@
 #include "File.h"
 #define N 255
 
-void getBytesFrequency(char* filename, char* characters, int* frequency, int* frequencyLength) {
+int getBytesFrequency(char* filename, char* characters, int* frequency, int* frequencyLength) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
 		printf("Failed to read file: %s", filename);
-		return;
+		return 0;
 	}
+	int totalBytes = 0;
 	int bytes[N];
 	int byte;
 	for (int i = 0; i < N; i++) {
@@ -17,6 +18,7 @@ void getBytesFrequency(char* filename, char* characters, int* frequency, int* fr
 		if (byte != EOF) {
 			bytes[byte]++;
 		}
+		totalBytes++;
 	} while (byte != EOF);
 	fclose(file);
 	for (int i = 0; i < N; i++) {
@@ -26,6 +28,7 @@ void getBytesFrequency(char* filename, char* characters, int* frequency, int* fr
 			(*frequencyLength)++;
 		}
 	}
+	return totalBytes;
 }
 
 int testFile() {
