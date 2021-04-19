@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Structures/Node.h"
 
-void printHCodes(Node *raiz, int arr[], int top); 
+void printHCodes(Node* raiz); 
 
 void printVetor(int array[], int n); 
 

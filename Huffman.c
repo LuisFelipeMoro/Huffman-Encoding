@@ -26,17 +26,45 @@ Node *buildHuffmanTree(char symbol[], int frequency[], int size) {
 	return root;
 }
 
+void getHuffmanCodes(Node* raiz, char arr[], Node *map[], int top){
+	if (raiz->left) {
+		arr[top] = '0';
+		getHuffmanCodes(raiz->left, arr, map, top + 1);
+	}
+	if (raiz->right) {
+		arr[top] = '1';
+		getHuffmanCodes(raiz->right, arr, map, top + 1);
+	}
+	if (isLeaf(raiz)) {
+		map[raiz->symbol] = raiz;
+		raiz->code = (char *)malloc((top + 1) * sizeof(char));
+		strncpy(raiz->code, arr, top);
+		raiz->code[top + 1] = 0;
+	}
+}
+
 //Função que junta as chamadas das funções de contrução
 //da árvore de huffman e a impressão dos H codes
 void useHuffman(char symbol[], int freq[], int size) {
 
 	Node *raiz = buildHuffmanTree(symbol, freq, size);
 
-	int arr[MAX_TREE_HEIGHT], top = 0;
+	Node *map[255];
+	char arr[MAX_TREE_HEIGHT];
 
-	printf(" Char | Huffman code ");
-	printf("\n--------------------\n");
-	printHCodes(raiz, arr, top);
+	for (int i = 0; i < 255; i++) {
+		map[i] = NULL;
+	}
+
+	for (int i = 0; i < MAX_TREE_HEIGHT; i++) {
+		arr[i] = 0;
+	}
+
+	getHuffmanCodes(raiz, arr, map, 0);
+
+	printf(" Char\t| Frequency \t| Huffman code\n");
+	printf("---------------------------------------\n");
+	printHCodes(raiz);
 
 	freeNode(raiz);
 }

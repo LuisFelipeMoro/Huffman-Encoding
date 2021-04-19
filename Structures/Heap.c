@@ -8,6 +8,7 @@ Node* newNode(char s, int freq){
 	temp->left = temp->right = NULL;
 	temp->symbol = s;
 	temp->frequency = freq;
+	temp->code = NULL;
 
 	return temp;
 }
@@ -19,6 +20,10 @@ Node* freeNode(Node* node) {
 	}
 	node->left = freeNode(node->left);
 	node->right = freeNode(node->right);
+	if (node->code != NULL) {
+		free(node->code);
+		node->code = NULL;
+	}
 	free(node);
 	return NULL;
 }
