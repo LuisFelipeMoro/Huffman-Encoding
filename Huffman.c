@@ -45,9 +45,14 @@ void getHuffmanCodes(Node* raiz, char arr[], Node *map[], int top){
 
 //Função que junta as chamadas das funções de contrução
 //da árvore de huffman e a impressão dos H codes
-void useHuffman(char symbol[], int freq[], int size) {
+void useHuffman(char* filename) {
+	char characters[255];
+	int frequency[255];
+	int size = 0;
 
-	Node *raiz = buildHuffmanTree(symbol, freq, size);
+	getBytesFrequency(filename, (char*)&characters, (int*)&frequency, &size);
+
+	Node *raiz = buildHuffmanTree(characters, frequency, size);
 
 	Node *map[255];
 	char arr[MAX_TREE_HEIGHT];
