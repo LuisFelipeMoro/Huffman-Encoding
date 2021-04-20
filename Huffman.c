@@ -50,7 +50,7 @@ void useHuffman(char* filename) {
 	int frequency[255];
 	int size = 0;
 
-	getBytesFrequency(filename, (char*)&characters, (int*)&frequency, &size);
+	int bytesRead = getBytesFrequency(filename, (char*)&characters, (int*)&frequency, &size);
 
 	Node *raiz = buildHuffmanTree(characters, frequency, size);
 
@@ -67,9 +67,12 @@ void useHuffman(char* filename) {
 
 	getHuffmanCodes(raiz, arr, map, 0);
 
-	printf(" Char\t| Frequency \t| Huffman code\n");
-	printf("---------------------------------------\n");
-	printHCodes(raiz);
+	printf(" Char\t| Frequency\t| Bits\t| Rate\t| Compressed\t| Huffman code\n");
+	printf("---------------------------------------------------------------------------------------\n");
+	int compressedBits = printHCodes(raiz, bytesRead);
+	printf("---------------------------------------------------------------------------------------\n");
+	printf(" Total");
+	printNode(bytesRead, bytesRead, compressedBits, "-");
 
 	freeNode(raiz);
 }
