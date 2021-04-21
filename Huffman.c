@@ -13,7 +13,7 @@ Node *buildHuffmanTree(char symbol[], int frequency[], int size) {
 		left = extractMin(minHeap);
 		right = extractMin(minHeap);
 
-		top = newNode('$', left->frequency + right->frequency);
+		top = newNode('-', left->frequency + right->frequency);
 
 		top->left = left;
 		top->right = right;
@@ -67,10 +67,12 @@ void useHuffman(char* filename) {
 
 	getHuffmanCodes(raiz, arr, map, 0);
 
+	printTree(raiz);
+
 	printf(" Char\t| Frequency\t| Bits\t| Rate\t| Compressed\t| Huffman code\n");
-	printf("---------------------------------------------------------------------------------------\n");
+	printf("-----------------------------------------------------------------------\n");
 	int compressedBits = printHCodes(raiz, bytesRead);
-	printf("---------------------------------------------------------------------------------------\n");
+	printf("-----------------------------------------------------------------------\n");
 	printf(" Total");
 	printNode(bytesRead, bytesRead, compressedBits, "-");
 

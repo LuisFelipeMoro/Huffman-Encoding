@@ -17,8 +17,8 @@ int getBytesFrequency(char* filename, char* characters, int* frequency, int* fre
 		byte = fgetc(file);
 		if (byte != EOF) {
 			bytes[byte]++;
+			totalBytes++;
 		}
-		totalBytes++;
 	} while (byte != EOF);
 	fclose(file);
 	for (int i = 0; i < N; i++) {
