@@ -9,4 +9,4 @@ Node *buildHuffmanTree(char symbol[], int freq[], int size);
 
 void getHuffmanCodes(Node* raiz, char arr[], Node *map[], int top);
 
-void useHuffman(char* filename);
+void useHuffman(char* filename, int printBoolean);
