@@ -1,6 +1,7 @@
 #include "File.h"
 #define N 255
 
+// Lê um arquivo e conta a frequencia de cada byte 
 int getBytesFrequency(char* filename, char* characters, int* frequency, int* frequencyLength) {
 	FILE* file = fopen(filename, "r");
 	if (file == NULL) {
@@ -31,6 +32,7 @@ int getBytesFrequency(char* filename, char* characters, int* frequency, int* fre
 	return totalBytes;
 }
 
+// Verifica se a funcao getBytesFrequency retorna valores adequados para os arquivos alfabeto e alfabetoInverso
 int testFile() {
 	char characters[N];
 	int frequency[N];
