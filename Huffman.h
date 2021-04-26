@@ -7,6 +7,6 @@
 
 Node *buildHuffmanTree(char symbol[], int freq[], int size); 
 
-void getHuffmanCodes(Node* raiz, char arr[], Node *map[], int top);
+void getHuffmanCodes(Node* raiz, char arr[], int top);
 
 void useHuffman(char* filename, int printBoolean);

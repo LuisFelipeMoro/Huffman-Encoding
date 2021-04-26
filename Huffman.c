@@ -26,17 +26,16 @@ Node *buildHuffmanTree(char symbol[], int frequency[], int size) {
 	return root;
 }
 
-void getHuffmanCodes(Node* raiz, char arr[], Node *map[], int top){
+void getHuffmanCodes(Node* raiz, char arr[], int top){
 	if (raiz->left) {
 		arr[top] = '0';
-		getHuffmanCodes(raiz->left, arr, map, top + 1);
+		getHuffmanCodes(raiz->left, arr, top + 1);
 	}
 	if (raiz->right) {
 		arr[top] = '1';
-		getHuffmanCodes(raiz->right, arr, map, top + 1);
+		getHuffmanCodes(raiz->right, arr, top + 1);
 	}
 	if (isLeaf(raiz)) {
-		map[raiz->symbol] = raiz;
 		raiz->code = (char *)malloc((top + 1) * sizeof(char));
 		strncpy(raiz->code, arr, top);
 		raiz->code[top + 1] = 0;
@@ -54,18 +53,13 @@ void useHuffman(char* filename, int printBoolean) {
 
 	Node *raiz = buildHuffmanTree(characters, frequency, size);
 
-	Node *map[255];
 	char arr[MAX_TREE_HEIGHT];
-
-	for (int i = 0; i < 255; i++) {
-		map[i] = NULL;
-	}
 
 	for (int i = 0; i < MAX_TREE_HEIGHT; i++) {
 		arr[i] = 0;
 	}
 
-	getHuffmanCodes(raiz, arr, map, 0);
+	getHuffmanCodes(raiz, arr, 0);
 
 	printTree(raiz);
 
