@@ -12,6 +12,9 @@ int printCharacter(char symbol){
 	if(symbol == '\n'){
 		return printf("\\n");
 	}
+	if(symbol <= 32 || symbol > 126) {
+		return printf("0x%02X", (unsigned char)symbol);
+	}
 	return printf("%c", symbol);
 }
 

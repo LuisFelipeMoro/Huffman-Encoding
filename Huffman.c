@@ -36,15 +36,15 @@ void getHuffmanCodes(Node* raiz, char arr[], int top){
 		getHuffmanCodes(raiz->right, arr, top + 1);
 	}
 	if (isLeaf(raiz)) {
-		raiz->code = (char *)malloc((top + 1) * sizeof(char));
+		raiz->code = (char *)malloc((top) * sizeof(char));
 		strncpy(raiz->code, arr, top);
-		raiz->code[top + 1] = 0;
+		raiz->code[top] = 0;
 	}
 }
 
 //Função que junta as chamadas das funções de contrução
 //da árvore de huffman e a impressão dos H codes
-void useHuffman(char* filename, int printBoolean) {
+void useHuffman(char* filename, int printTreeGraph, int printCodes) {
 	char characters[255];
 	int frequency[255];
 	int size = 0;
@@ -61,9 +61,11 @@ void useHuffman(char* filename, int printBoolean) {
 
 	getHuffmanCodes(raiz, arr, 0);
 
-	printTree(raiz);
+	if (printTreeGraph == 1) {
+		printTree(raiz);
+	}
 
-	if(printBoolean == 1){
+	if(printCodes == 1){
 		printf(" Char\t| Frequency\t| Bits\t| Rate\t| Compressed\t| Huffman code\n");
 		printf("-----------------------------------------------------------------------\n");
 		int compressedBits = printHCodes(raiz, bytesRead);

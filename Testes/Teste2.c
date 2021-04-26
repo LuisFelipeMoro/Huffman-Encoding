@@ -1,5 +1,5 @@
 #include "../Huffman.h"
 
 int main(){
-    useHuffman("Exemplos/alfabeto.txt", 0);
+    useHuffman("Exemplos/alfabeto.txt", 1, 0);
 }
