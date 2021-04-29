@@ -1,5 +1,5 @@
-#include "../File.h"
+#include "../Huffman.h"
 
-int main(){
-    testFile();
+int main() {
+	useHuffman("Exemplos/alfabeto.txt", 1, 1);
 }

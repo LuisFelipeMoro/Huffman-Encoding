@@ -45,6 +45,9 @@ void getHuffmanCodes(Node* raiz, char arr[], int top){
 //Função que junta as chamadas das funções de contrução
 //da árvore de huffman e a impressão dos H codes
 void useHuffman(char* filename, int printTreeGraph, int printCodes) {
+
+	printf("Huffman: %s\n", filename);
+
 	char characters[255];
 	int frequency[255];
 	int size = 0;
