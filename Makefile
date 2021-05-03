@@ -11,4 +11,6 @@ test:
 	./Testes/Teste3
 
 clean:
-	rm Testes/*
+	rm Testes/Teste1
+	rm Testes/Teste2
+	rm Testes/Teste3
